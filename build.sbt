@@ -14,8 +14,8 @@ lazy val sparkSettings = Seq(
 lazy val root = (project in file("."))
   .settings(
     sparkSettings,
-    name := "scala-spark",
-    mainClass in assembly := Some("com.didichxing.sec.SparkApp"),
+    name := "spark-assembly",
+    mainClass in assembly := Some("com.mirana.spark.ExampleApp"),
     assemblyJarName in assembly := "scala-spark-final.jar",
     assemblyMergeStrategy in assembly := {
       case PathList("javax", "servlet", xs @ _*) => MergeStrategy.last
@@ -23,6 +23,7 @@ lazy val root = (project in file("."))
       case PathList("javax", "activation", xs @ _*) => MergeStrategy.last
       case PathList("org", "apache", xs @ _*) => MergeStrategy.last
       case PathList("org", "aopalliance", xs @ _*) => MergeStrategy.last
+      case PathList("net", "jpountz", xs @ _*) => MergeStrategy.last
       case PathList("com", "google", xs @ _*) => MergeStrategy.last
       case PathList("com", "esotericsoftware", xs @ _*) => MergeStrategy.last
       case PathList("com", "codahale", xs @ _*) => MergeStrategy.last
